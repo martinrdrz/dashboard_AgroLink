@@ -7,8 +7,7 @@ import GridViewIcon from '@mui/icons-material/GridView';
 import { SideBar } from '../components/navbar/SideBar';
 import { agrolinkApi } from '../api/agrolinkApi';
 import { useEffect } from 'react';
-import { useState } from 'react';
-import { userDataStore } from '../hooks';
+import { useAuth, userDataStore } from '../hooks';
 
 const navArrayLinks = [
     {
@@ -44,13 +43,14 @@ const navArrayLinks = [
 ];
 
 export const AgrolinkDashboardPage = () => {
+    const { email } = useAuth();
     const { setReadyState, setLoadingState, setErrorState, setAllData } = userDataStore();
 
     useEffect(() => {
         const getSystems = async () => {
             try {
                 setLoadingState();
-                const { data } = await agrolinkApi.get('/sistemas/gtemperini@gmail.com');
+                const { data } = await agrolinkApi.get(`/sistemas/${email}`);
                 setReadyState();
                 setAllData(data);
             } catch (error) {

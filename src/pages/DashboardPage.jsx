@@ -13,7 +13,7 @@ export const DashboardPage = () => {
     const dataValuesIntervalUpdate = Number(import.meta.env.VITE_DATA_VALUES_INTERVAL_UPDATE);
     //const { email } = useSelector((state) => state.auth);
     const { email } = useAuth();
-    const [valuesQueryState, setValuesQueryState] = useState('first_load'); //state para control carga inicial de valoresde los datos
+    const [valuesQueryState, setValuesQueryState] = useState('first_load'); //state para control carga inicial de valores de los datos
     const systemList = [];
     const { status: systemsDataState, setValues, getSystems } = userDataStore(); // state es para control carga inicial
     const systemsList = getSystems();

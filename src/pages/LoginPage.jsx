@@ -23,8 +23,8 @@ function Copyright(props) {
 }
 
 const formData = {
-    loginEmail: 'gtemperini@gmail.com',
-    loginPassword: '123456',
+    loginEmail: '',
+    loginPassword: '',
 };
 
 const formValidations = {
@@ -45,7 +45,7 @@ export const LoginPage = () => {
         event.preventDefault();
         setFormSubmitted(true);
         if (!isFormValid) return;
-        useAuth.startLogin({ email: loginEmail, password: loginPassword });
+        startLogin({ email: loginEmail, password: loginPassword });
         // const data = new FormData(event.currentTarget);
         // console.log({
         //     email: data.get('LoginEmail'),
